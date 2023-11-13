@@ -1,4 +1,4 @@
-const API_KEY = process.env.REACT_APP_API_KEY;
+const API_KEY = '968461e1-2078b014-4138fc47-79de93f3'  //TODO: for some reason it couldn't read the key in my env file 
 
 const API_URL = "https://fortniteapi.io/v2/shop?lang=en";
 
