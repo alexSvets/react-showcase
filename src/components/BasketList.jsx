@@ -37,8 +37,9 @@ export function BasketList(props) {
       ) : (
         <li className="collection-item">Cart is empty </li>
       )}
-      <li className="collection-header">
+      <li className="collection-header total-price">
         <h5>Total cost: {totalPrice} $</h5>
+        <button className=" btn">Checkout</button>
       </li>
     </ul>
   );
