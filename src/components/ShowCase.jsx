@@ -43,6 +43,36 @@ export function ShowCase() {
     setOrder(newOrder);
   };
 
+  const incrementQuantity = (itemId) => {
+    const newOrder = order.map((el) => {
+      if (el.id === itemId) {
+        const newQuantity = el.quantity + 1;
+        return {
+          ...el,
+          quantity: newQuantity,
+        };
+      } else {
+        return el;
+      }
+    });
+    setOrder(newOrder);
+  };
+
+  const decrementQuantity = (itemId) => {
+    const newOrder = order.map((el) => {
+      if (el.id === itemId) {
+        const newQuantity = el.quantity - 1;
+        return {
+          ...el,
+          quantity: newQuantity >= 0 ? newQuantity : 0,
+        };
+      } else {
+        return el;
+      }
+    });
+    setOrder(newOrder);
+  };
+
   useEffect(function getGoods() {
     fetch(API_URL, {
       headers: {
@@ -65,7 +95,13 @@ export function ShowCase() {
         <GoodsList goods={goods} addToBasket={addToBasket} />
       )}
       {isBasketShow && (
-        <BasketList order={order} handleBasketShow={handleBasketShow} removeFromBasket={removeFromBasket}/>
+        <BasketList
+          order={order}
+          handleBasketShow={handleBasketShow}
+          removeFromBasket={removeFromBasket}
+          incrementQuantity={incrementQuantity}
+          decrementQuantity={decrementQuantity}
+        />
       )}
     </main>
   );

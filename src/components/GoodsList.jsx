@@ -2,6 +2,7 @@ import { GoodsItem } from "./GoodsItem";
 
 export function GoodsList(props) {
   const { goods = [], addToBasket = Function.prototype } = props;
+
   if (!goods.length) {
     return <h3> Page not found</h3>;
   }
