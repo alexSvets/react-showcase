@@ -5,6 +5,7 @@ export function GoodsItem(props) {
     displayDescription: description,
     displayAssets: [{ full_background }],
     price: { finalPrice },
+    addToBasket = Function.prototype,
   } = props;
 
   return (
@@ -17,7 +18,18 @@ export function GoodsItem(props) {
         <p>{description}</p>
       </div>
       <div className="card-action">
-        <button className="btn">Buy</button>{" "}
+        <button
+          onClick={() =>
+            addToBasket({
+              id,
+              name,
+              finalPrice,
+            })
+          }
+          className="btn"
+        >
+          Buy
+        </button>{" "}
         <span className="right">{finalPrice} $</span>
       </div>
     </div>
